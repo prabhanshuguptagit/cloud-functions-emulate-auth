@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase functions test utility</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+  <script type="text/javascript" src="scripts/script.js"></script>
+  <script type="text/javascript" src="config.js"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <br>
+    <h3>Make sure <strong>firebase functions:shell</strong> is running on port 5000 before using this test utility.</h3>
+    <br>
+    <div id="token">
+      Firebase Auth:
+      <div id="token-spinner">
+        <p>Logging in...</p>
+        <div class="loader"></div>
+      </div>
+      <div id="tokenLocation">
+      </div>
+    </div>
+  <form onsubmit="event.preventDefault(); submitFunction()" >
+    <fieldset id="functionForm" disabled>
+    <label for="functionName" style="text-align: left">Enter function name ex. functionName</label>
+    <input type="text" name="functionName" placeholder="Don't add brackets to functionName" id="functionName" required>
+    <br>
+    <br>
+    <label for="functionName" style="text-align: left">Enter JSON</label>
+    <input type="text" name="jsonData" placeholder='ex. {"text": "Hello World"}' id="jsonData" required></input>
+    <br>
+    <br>
+    <button type="submit" id="functionSubmitBtn" disabled>Call function</button>
+
+  </fieldset>
+  </form>
+
+  <div id="response-spinner">
+        Executing function.
+        <div class="loading"></div>
+  </div>
+  <div id="responseMessage">
+    Executed function.
+  </div>
+  <div id="errorMessage">
+    <span class="red">Error in execution. Check console</span>
+  </div>
+  <pre id="responses">
+    <br></pre>
+  </div>
+</body>
+</html>
